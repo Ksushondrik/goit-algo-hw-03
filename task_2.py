@@ -7,7 +7,7 @@ def get_numbers_ticket(min: int, max: int, quantity: int):
     else:
         while len(sample) < quantity:                                               #додаємо унікальні елементи, поки їх к-ть не задовольнить умову
             el = random.randint(min, max)
-            sample.add(el)
+            sample.add(el)                                                          #використовуємо множину для отримання лише унікальних значень
     s_list = list(sample)                                                           #записуємо елементи в список
     s_list.sort()                                                                   #відстровуємо за зростанням
     print(s_list)
