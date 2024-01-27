@@ -1,16 +1,15 @@
 import random
 
-def get_numbers_ticket(min: int, max: int, quantity: int):
-    sample = set()
-    if (min < 1) or (max > 1000) or ((quantity <= min) and (quantity >= max)):      #перевірка відповідності заданих параметрів
-        print(s_list = list(sample))
+def get_numbers_ticket(min: int, max: int, quantity: int) -> list:                              # створюємо функцію вибірки
+    sample = []
+    if (min < 1) or (max > 1000) or (max <= quantity <= min) or (quantity >= (max-min)):        # перевіряємо задані параметри
+        print(f"Спробуйте ще раз! {sample}")
     else:
-        while len(sample) < quantity:                                               #додаємо унікальні елементи, поки їх к-ть не задовольнить умову
+        while (len(sample) < quantity) :                                                        # додаємо випадкові числа в список
             el = random.randint(min, max)
-            sample.add(el)                                                          #використовуємо множину для отримання лише унікальних значень
-    s_list = list(sample)                                                           #записуємо елементи в список
-    s_list.sort()                                                                   #відстровуємо за зростанням
-    print(s_list)
+            if el not in sample :
+                sample.append(el)
+    sample.sort()                                                                               # відсортовуємо за зростанням
+    return sample
 
-
-get_numbers_ticket(1,49,6)
+print(get_numbers_ticket(1,10,6))
